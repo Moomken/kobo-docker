@@ -5,9 +5,9 @@ services:
     image: postgis/postgis:14-3.2
     hostname: postgres
     env_file:
-      - ../kobo-env/envfiles/domains.txt
-      - ../kobo-env/envfiles/databases.txt
-      - ../kobo-env/envfiles/aws.txt
+      - ./env/envfiles/domains.txt
+      - ./env/envfiles/databases.txt
+      - ./env/envfiles/aws.txt
     volumes:
       - ./.vols/db:/var/lib/postgresql/data
       - ./backups/postgres:/srv/backups
@@ -23,9 +23,9 @@ services:
     environment:
       - MONGO_DATA=/data/db
     env_file:
-      - ../kobo-env/envfiles/domains.txt
-      - ../kobo-env/envfiles/databases.txt
-      - ../kobo-env/envfiles/aws.txt
+      - ./env/envfiles/domains.txt
+      - ./env/envfiles/databases.txt
+      - ./env/envfiles/aws.txt
     volumes:
       - ./.vols/mongo:/data/db
       - ./backups/mongo:/srv/backups
@@ -38,9 +38,9 @@ services:
   redis_main:
     image: redis:7.2
     env_file:
-      - ../kobo-env/envfiles/domains.txt
-      - ../kobo-env/envfiles/databases.txt
-      - ../kobo-env/envfiles/aws.txt
+      - ./env/envfiles/domains.txt
+      - ./env/envfiles/databases.txt
+      - ./env/envfiles/aws.txt
     environment:
       - KOBO_REDIS_SERVER_ROLE=main
     volumes:
@@ -59,7 +59,7 @@ services:
   redis_cache:
     image: redis:7.2
     env_file:
-      - ../kobo-env/envfiles/databases.txt
+      - ./env/envfiles/databases.txt
     environment:
       - KOBO_REDIS_SERVER_ROLE=cache
     volumes:
