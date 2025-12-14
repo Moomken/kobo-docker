@@ -1,0 +1,12 @@
+KPI_DJANGO_DEBUG=False
+TEMPLATE_DEBUG=False
+#USE_X_FORWARDED_HOST=True
+
+ENKETO_VERSION=Express
+KPI_PREFIX=/
+KPI_BROKER_URL=redis://:XRfhigO2LW6mUKLLdV3I@redis-main.kobo.moomken.private:6379/1
+
+DJANGO_LANGUAGE_CODES=ar cs de-DE en es fr hi ku pl pt ru tr uk zh-hans
+
+# Comma separated domains
+SERVICE_ACCOUNT_WHITELISTED_HOSTS=kf.kobo.moomken.internal
