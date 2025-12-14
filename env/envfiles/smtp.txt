@@ -7,9 +7,9 @@
 # See https://docs.djangoproject.com/en/1.8/topics/email/#smtp-backend.
 
 EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
-EMAIL_HOST=
+EMAIL_HOST=moomken.ly
 EMAIL_PORT=587
-EMAIL_HOST_USER=
-EMAIL_HOST_PASSWORD=
+EMAIL_HOST_USER=kobo@moomken.ly
+EMAIL_HOST_PASSWORD=Kobo1234Kobo
 EMAIL_USE_TLS=True
-DEFAULT_FROM_EMAIL=support@domain.name
+DEFAULT_FROM_EMAIL=kobo@moomken.ly

@@ -1,9 +1,3 @@
-#--------------------------------------------------------------------------------
-# MONGO
-#--------------------------------------------------------------------------------
-# These `KOBO_POSTGRES_` settings only affect the postgres container itself and the
-# `wait_for_mongo.bash` init script that runs within the kpi and kobocat.
-# Please see kobocat.txt to set container variables
 KOBO_MONGO_PORT=27017
 KOBO_MONGO_HOST=mongo.domain.name
 MONGO_INITDB_ROOT_USERNAME=root
@@ -14,17 +8,8 @@ KOBO_MONGO_PASSWORD=kobo
 MONGO_DB_NAME=formhub
 MONGO_DB_URL=mongodb://kobo:kobo@mongo.domain.name:27017/formhub
 
-# Default MongoDB backup schedule is weekly at 01:00 AM UTC on Sunday.
-#MONGO_BACKUP_SCHEDULE=0 1 * * 0
 
-#--------------------------------------------------------------------------------
-# POSTGRES
-#--------------------------------------------------------------------------------
 
-# These `KOBO_POSTGRES_` settings only affect the postgres container itself and the
-# `wait_for_postgres.bash` init script that runs within the kpi and kobocat
-# containers. To control Django database connections, please see the
-# `DATABASE_URL` environment variable.
 POSTGRES_PORT=5432
 POSTGRES_HOST=postgres.domain.name
 POSTGRES_USER=kobo
@@ -32,27 +17,56 @@ POSTGRES_PASSWORD=kobo
 KC_POSTGRES_DB=kobocat
 KPI_POSTGRES_DB=koboform
 
-# Postgres database used by kpi and kobocat Django apps
 KC_DATABASE_URL=postgis://kobo:kobo@postgres.domain.name:5432/kobotoolbox
 KPI_DATABASE_URL=postgis://kobo:kobo@postgres.domain.name:5432/kobotoolbox
 
-# Default Postgres backup schedule is weekly at 02:00 AM UTC on Sunday.
-#POSTGRES_BACKUP_SCHEDULE=0 2 * * 0
 
-#--------------------------------------------------------------------------------
-# REDIS
-#--------------------------------------------------------------------------------
 
-#REDIS_BACKUP_SCHEDULE=0 3 * * 0
 
 REDIS_SESSION_URL=redis://:kobo@redis-cache.kobo.private:6380/2
 REDIS_PASSWORD=kobo
 CACHE_URL=redis://:kobo@redis-cache.kobo.private:6380/5
-# In bytes, uncomment to cap Redis Cache memory
-# REDIS_CACHE_MAX_MEMORY=
 
 REDIS_PASSWORD=${REDIS_PASSWORD}
 CACHE_URL=redis://:kobo@redis-cache.kobo.private:6380/5
 REDIS_CACHE_MAX_MEMORY=
 SERVICE_ACCOUNT_BACKEND_URL=redis://:kobo@redis-cache.kobo.private:6380/6
 ENKETO_REDIS_MAIN_URL=redis://:kobo@redis-main.kobo.private:6379/0
+
+
+
+
+
+
+
+
+
+KOBO_MONGO_PORT=27017
+KOBO_MONGO_HOST=mongo.kobo.moomken.private
+MONGO_INITDB_ROOT_USERNAME=root
+MONGO_INITDB_ROOT_PASSWORD=ox4xySdnCA7YnW3Fe6Ku
+MONGO_INITDB_DATABASE=formhub
+KOBO_MONGO_USERNAME=kobo
+KOBO_MONGO_PASSWORD=iDS2VgSVKvOsQD7KbYWF
+MONGO_DB_NAME=formhub
+MONGO_DB_URL=mongodb://kobo:iDS2VgSVKvOsQD7KbYWF@mongo.kobo.moomken.private:27017/formhub
+
+
+
+POSTGRES_PORT=5432
+POSTGRES_HOST=postgres.kobo.moomken.private
+POSTGRES_USER=kobo
+POSTGRES_PASSWORD=2iI5Sas0sVaNytPzL3nR
+KC_POSTGRES_DB=kobocat
+KPI_POSTGRES_DB=koboform
+KC_DATABASE_URL=postgis://kobo:2iI5Sas0sVaNytPzL3nR@postgres.kobo.moomken.private:5432/kobocat
+KPI_DATABASE_URL=postgis://kobo:2iI5Sas0sVaNytPzL3nR@postgres.kobo.moomken.private:5432/koboform
+KOBO_POSTGRES_REPLICATION_USER=kobo_replication
+KOBO_POSTGRES_REPLICATION_PASSWORD=7mjv0WdH99Wcm3zz9InH
+KOBO_POSTGRES_PRIMARY_ENDPOINT=primary.postgres.kobo.moomken.private
+REDIS_SESSION_URL=redis://:XRfhigO2LW6mUKLLdV3I@redis-cache.kobo.moomken.private:6380/2
+REDIS_LOCK_URL=redis://:XRfhigO2LW6mUKLLdV3I@redis-cache.kobo.moomken.private:6380/3
+REDIS_PASSWORD=XRfhigO2LW6mUKLLdV3I
+CACHE_URL=redis://:XRfhigO2LW6mUKLLdV3I@redis-cache.kobo.moomken.private:6380/5
+REDIS_CACHE_MAX_MEMORY=
+SERVICE_ACCOUNT_BACKEND_URL=redis://:XRfhigO2LW6mUKLLdV3I@redis-cache.kobo.moomken.private:6380/6
